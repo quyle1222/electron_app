@@ -1,0 +1,24 @@
+.container {
+  flex-direction: column;
+}
+
+.text {
+  font-size: 16px;
+  color: black;
+}
+.form {
+  width: 50vw;
+  display: flexbox;
+  flex-direction: row !important;
+  flex-wrap: wrap;
+}
+
+.input {
+  width: 30vw;
+  align-self: center;
+  justify-content: center;
+}
+
+.margin-top {
+  margin-top: 10px;
+}

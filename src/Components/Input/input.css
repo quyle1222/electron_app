@@ -1,0 +1,10 @@
+.input {
+  width: 20vw;
+  height: 3.5vh;
+  border-radius: 15px;
+  border: 0px;
+}
+
+.input:focus {
+  outline: none;
+}
