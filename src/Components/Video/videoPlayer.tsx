@@ -8,6 +8,7 @@ import './videoPlayer.css';
 type PropVideoPlayer = {
   src: string;
   loop?: boolean;
+  muted?: boolean | undefined;
 };
 
 const VideoPlayer = ({ src, loop, ...props }: PropVideoPlayer) => {

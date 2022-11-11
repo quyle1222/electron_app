@@ -1,13 +1,28 @@
-import VideoPlayer from 'Components/Video/videoPlayer';
-import { TextField } from '@material-ui/core';
 import './home.css';
+import { Button, TextField, Dialog } from '@material-ui/core';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const HomePage = () => {
+  const navigate = useNavigate();
+  const [username, setUsername] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+
+  const handleLogin = () => {
+    if (username.trim() && password.trim()) {
+      navigate('/home');
+    } else {
+      alert('User name is require');
+    }
+  };
+
   return (
     <div className="container">
-      <form className="form" noValidate autoComplete="off">
+      <form className="form" noValidate={false} autoComplete="off">
         <div className="margin-top">
           <TextField
+            value={username}
+            onChange={({ target }) => setUsername(target.value)}
             className="input"
             id="outlined-basic"
             label="Account"
@@ -16,6 +31,8 @@ const HomePage = () => {
         </div>
         <div className="margin-top">
           <TextField
+            value={password}
+            onChange={({ target }) => setPassword(target.value)}
             className="input"
             id="outlined-basic"
             label="Password"
@@ -23,7 +40,11 @@ const HomePage = () => {
           />
         </div>
       </form>
-      <VideoPlayer src="https://v190.iiiijjjjij.com/xbase/us40/xcfiles/videos/2022/7/14/vietsub_pinyin_co_gai_ay_noi_voi_toi_uu_uu_cover_tik_tok_6931702753407677545.mp4" />
+      <div className="center">
+        <Button className="button margin-top" onClick={handleLogin}>
+          Login
+        </Button>
+      </div>
     </div>
   );
 };

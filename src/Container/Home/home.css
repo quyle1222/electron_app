@@ -1,5 +1,7 @@
 .container {
   flex-direction: column;
+  align-content: center;
+  justify-content: center;
 }
 
 .text {
@@ -7,18 +9,30 @@
   color: black;
 }
 .form {
-  width: 50vw;
-  display: flexbox;
+  width: 50vw !important;
+  /* display: flexbox; */
   flex-direction: row !important;
-  flex-wrap: wrap;
+}
+
+.center {
+  display: flex;
+  width: 100%;
+  align-items: center !important;
+  justify-content: center !important;
 }
 
 .input {
-  width: 30vw;
+  width: 100%;
   align-self: center;
   justify-content: center;
 }
 
 .margin-top {
-  margin-top: 10px;
+  margin-top: 10px !important;
+}
+
+.button {
+  width: 30vw;
+  height: 5vw;
+  background-color: burlywood !important;
 }
