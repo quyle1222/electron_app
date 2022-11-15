@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import './home.css';
 import { Button, TextField } from '@material-ui/core';
 import { useEffect, useState } from 'react';
@@ -10,17 +11,26 @@ const HomePage = () => {
   const [password, setPassword] = useState<string>('');
 
   const [
-    distpath,
-    { data: dataLogin, isLoading: isLoadingLogin, isSuccess: isSuccessLogin },
+    dispatchLogin,
+    {
+      data: dataLogin,
+      isLoading: isLoadingLogin,
+      isSuccess: isSuccessLogin,
+      isUninitialized,
+    },
   ] = usePostLoginMutation();
 
   useEffect(() => {
-    console.log('data', dataLogin);
+    if (isUninitialized === false && isSuccessLogin === true) {
+      if (dataLogin?.success && dataLogin?.data?.token) {
+        navigate('/home');
+      }
+    }
   }, [dataLogin, isLoadingLogin, isSuccessLogin]);
 
   const handleLogin = () => {
     if (username.trim() && password.trim()) {
-      distpath({ username: 'quyle1222', password: 'admin' });
+      dispatchLogin({ username: username.trim(), password: password.trim() });
     } else {
       alert('User name is require');
     }
