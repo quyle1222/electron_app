@@ -7,7 +7,7 @@ import {
 } from '@reduxjs/toolkit/query/react';
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: 'Config.API_URL',
+  baseUrl: 'https://clon-app.herokuapp.com',
   timeout: 6000,
   prepareHeaders: (headers, { getState }) => {
     const token = '';

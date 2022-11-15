@@ -1,16 +1,26 @@
 import './home.css';
 import { Button, TextField } from '@material-ui/core';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { usePostLoginMutation } from 'Service/Auth';
 
 const HomePage = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
+  const [
+    distpath,
+    { data: dataLogin, isLoading: isLoadingLogin, isSuccess: isSuccessLogin },
+  ] = usePostLoginMutation();
+
+  useEffect(() => {
+    console.log('data', dataLogin);
+  }, [dataLogin, isLoadingLogin, isSuccessLogin]);
+
   const handleLogin = () => {
     if (username.trim() && password.trim()) {
-      navigate('/home');
+      distpath({ username: 'quyle1222', password: 'admin' });
     } else {
       alert('User name is require');
     }
