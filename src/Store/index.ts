@@ -7,8 +7,8 @@ import api from '../Service/index';
 
 export const store = configureStore({
   reducer: {
-    counter,
     api: api.reducer,
+    counter,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat([authApi.middleware, moviesApi.middleware]),

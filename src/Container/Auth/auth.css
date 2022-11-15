@@ -1,0 +1,38 @@
+.container {
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+.text {
+  font-size: 16px;
+  color: black;
+}
+.form {
+  width: 50vw !important;
+  /* display: flexbox; */
+  flex-direction: row !important;
+}
+
+.center {
+  display: flex;
+  width: 100%;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.input {
+  width: 100%;
+  align-self: center;
+  justify-content: center;
+}
+
+.margin-top {
+  margin-top: 10px !important;
+}
+
+.button {
+  width: 30vw;
+  height: 5vw;
+  background-color: burlywood !important;
+}
