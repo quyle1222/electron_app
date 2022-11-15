@@ -3,9 +3,9 @@ import postLogin from './postLogin';
 
 export const userApi = api.injectEndpoints({
   endpoints: (build) => ({
-    fetchOne: postLogin(build),
+    postLogin: postLogin(build),
   }),
   overrideExisting: false,
 });
 
-export const { useLazyFetchOneQuery } = userApi;
+export const { useLazyPostLoginQuery } = userApi;
