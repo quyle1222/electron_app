@@ -1,3 +1,4 @@
+import { RootState } from '@reduxjs/toolkit/dist/query/core/apiState';
 import {
   BaseQueryApi,
   createApi,
@@ -5,7 +6,17 @@ import {
   fetchBaseQuery,
 } from '@reduxjs/toolkit/query/react';
 
-const baseQuery = fetchBaseQuery({ baseUrl: 'Config.API_URL' });
+const baseQuery = fetchBaseQuery({
+  baseUrl: 'Config.API_URL',
+  timeout: 6000,
+  prepareHeaders: (headers, { getState }) => {
+    const token = '';
+    if (token) {
+      headers.set('authorization', `Bearer ${token}`);
+    }
+    return headers;
+  },
+});
 
 const baseQueryWithInterceptor = async (
   args: string | FetchArgs,
