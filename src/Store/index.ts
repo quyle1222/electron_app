@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/dist/query';
 import { authApi } from 'Service/Auth/index';
+import { moviesApi } from 'Service/Movies/index';
 import counter from './Counter';
 import api from '../Service/index';
 
@@ -10,7 +11,7 @@ export const store = configureStore({
     api: api.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(authApi.middleware),
+    getDefaultMiddleware().concat([authApi.middleware, moviesApi.middleware]),
 });
 
 setupListeners(store.dispatch);

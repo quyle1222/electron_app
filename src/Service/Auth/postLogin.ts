@@ -8,14 +8,14 @@ export default (build: EndpointBuilder<any, any, any>) =>
       method: 'POST',
       body,
     }),
-    transformResponse: (response) => response.data,
+    transformResponse: (response) => response,
   });
 
 type Response = {
   success: boolean;
   message?: string;
   errorCode?: string;
-  data?: object;
+  data?: { token: string };
 };
 
 type DataPost = {
